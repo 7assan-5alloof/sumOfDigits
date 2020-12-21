@@ -4,17 +4,23 @@ using namespace std;
 
 int main()
 {
+    cout << "Press Ctrl-C to stop" << endl;
+
     int sum = 0;
     int number;
-    cout << "Enter a number: ";
-    cin >> number;
-    int numberWorking = number;
-    for (int i = 10; numberWorking > 0;)
+    int numberWorking;
+    while (true)
     {
-        numberWorking %= i;
-        sum += numberWorking;
-        i *= 10;
-    }
+        cout << "Enter a number: ";
+        cin >> number;
+        numberWorking = number;
+        while (numberWorking > 0)
+        {
+            sum += numberWorking % 10;
+            numberWorking /= 10;
+        }
 
+        cout << "The sum of digits of " << number << " is " << sum << endl;
+    }
     return 0;
 }
